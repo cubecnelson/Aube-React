@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  /*animation: App-logo-spin infinite 20s linear;*/
+}
+
+.App-header {
+  background: url('./sample/background.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.App-about {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: rgba(0,0,0, 0.65);
+  min-height: 200px;
+}
+
+.App-categories {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: rgba(0,0,0, 0.65);
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  background-color: black; 
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

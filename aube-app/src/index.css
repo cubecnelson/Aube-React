@@ -1,0 +1,268 @@
+
+@font-face {
+    font-family: "SouthernAire";
+    src: url(./SouthernAire.ttf) format("truetype");
+}
+
+@keyframes logo-circle {
+    0% {
+      	transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+    }
+    25% {
+      	transform: scale(0.55);
+        -webkit-transform: scale(0.55);
+    }
+    50% {
+      	transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+    }
+    75% {
+      	transform: scale(0.55);
+        -webkit-transform: scale(0.55);
+    }
+    90% {
+      	transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+    }
+    100% {
+        transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+    }
+}
+
+@keyframes zoomIn {
+  100% {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
+}
+
+figure{ display: block; margin: 0; }
+
+a {
+  	text-decoration: none; 
+  	font-style: normal;
+}
+a:hover {
+    text-decoration:none; 
+  	font-style: normal;
+}
+
+p {
+	padding-right: 48px;
+	padding-left: 48px;
+  max-width: 800px;
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+hr {
+  border-width: 1.5px;
+}
+
+.tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,255,255, 0.5);
+  -moz-transition: background .3s linear;
+  -webkit-transition: background .3s linear;
+  -o-transition: background .3s linear;
+  transition: background .3s linear;
+}
+
+.tint:hover:before {
+  background: none;
+}
+
+.tint-img {
+  z-index: 0;
+  opacity: 0.3;
+}
+
+
+.tint-img:hover {
+  opacity: 1;
+  -moz-transition: all .3s linear;
+  -webkit-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
+  cursor: pointer;
+/*  transform: scale(1.2);
+  -webkit-transform: scale(1.2);*/
+}
+
+.t2:before {
+    background-color: #BFAFA6;
+  }
+  
+.t3:before {
+    background-color: #AA968A;
+}
+  
+  .t4:before {
+    background: #7F6A6A;
+  }
+  
+  .t5:before {
+    background: rgba(255,0,240, 0.5);
+  }
+  
+  .t6:before {
+    background: rgba(255,102,0, 0.6);
+  }
+
+.title-font {
+	font-size: 48px;
+	font-family: SouthernAire;
+}
+
+.small-font {
+	font-size: 12px;
+}
+
+.normal-font {
+	font-size: 24px;
+}
+
+.large-font {
+	font-size: 60px;
+}
+
+.page {
+  height: 33vh;
+  min-height: 300px;
+  color: rgba(0,0,0, 0.65);
+}
+
+.circle {
+      height: 360px;
+      width: 360px;
+      -webkit-border-radius: 180px;
+      -moz-border-radius: 180px;
+      border-radius: 180px;
+      background: white;
+      transform: scale(0.5);
+}
+.circle:hover{
+    animation: logo-circle 1s ease-in-out infinite alternate;
+    -webkit-animation: logo-circle 1s ease-in-out infinite alternate;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 36px;
+  width: 36px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: white;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  background: rgba(100, 100, 100, 0.8);
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: rgba(100, 100, 100, 0.8);;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  padding: 0.8em;
+}
+
+.bm-menu div {
+	padding: 10px;
+	width: 250px;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	color: rgba(0, 0, 0, 0.8);
+}
+.bm-menu div:hover,
+.bm-menu div:focus {
+  	text-decoration: inherit; 
+  	color: white;
+  	background: rgba(100, 100, 100, 0.8);;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(100, 100, 100, 0.8);
+}
+
+
+.logo-container {
+	padding: 10px;
+	flex: 1;
+	justify-content: center;
+}
+
+  
+.wrap {
+    overflow: hidden;
+    width: 840px;
+    margin: 0 auto;
+}
+
+.item-header {
+  position: absolute;
+  color: white;
+  left: 0; 
+  right: 0; 
+  top: 0;
+  bottom: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: auto;
+  margin-bottom: auto;  
+  height: 100px;
+  width: 200px;
+}
+
+.carousel {
+  -webkit-box-shadow: inset 30px 30px 30px rgba(100, 100, 100, 0.8);
+  -moz-box-shadow: inset 30px 30px 30px rgba(100, 100, 100, 0.8);
+  box-shadow: inset 30px 30px 30px rgba(100, 100, 100, 0.8);
+}
+
+.menu {
+	height: 80%;
+  background-color: #99C795;
+}
