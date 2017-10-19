@@ -72,14 +72,6 @@ constructor(props) {
                   <div className="item tint t3"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample2}/></div>
                   <div className="item tint t4"><h1 className="item-header title-font large-font">Nut Bar</h1><img className="tint-img" src={sample3}/></div>
                   <div className="item tint t2"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample1}/></div>
-                  <div className="item tint t3"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample2}/></div>
-                  <div className="item tint t4"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample3}/></div>
-                  <div className="item tint t2"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample1}/></div>
-                  <div className="item tint t3"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample2}/></div>
-                  <div className="item tint t4"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample3}/></div>
-                  <div className="item tint t2"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample1}/></div>
-                  <div className="item tint t3"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample2}/></div>
-                  <div className="item tint t4"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample3}/></div>
               </OwlCarousel>
           </div>
 
