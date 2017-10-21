@@ -116,6 +116,11 @@ hr {
   padding: 15px;
 }
 
+.card .image {
+  position: relative;
+  z-index: -100;
+}
+
 .t2:before {
     background-color: #BFAFA6;
   }

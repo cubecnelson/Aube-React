@@ -6,7 +6,10 @@ import sample3 from './sample/P6100750.JPG';
 import './App.css';
 import { slide as Menu } from 'react-burger-menu';
 import OwlCarousel from 'react-owl-carousel';
-import StackGrid from "react-stack-grid";
+import StackGrid, { transitions } from "react-stack-grid";
+import { SpringGrid } from 'react-stonecutter';
+
+const { scaleDown } = transitions;
 
 
 class App extends Component {
@@ -17,39 +20,109 @@ class App extends Component {
   constructor(props) {
         super(props);
      this.list = [
-        {
-          source: sample2,
-          title: "Macro Nuts Almond Kernals Natural 250g",
-          desc: "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended."
-        },
-        {
-          source: sample3,
-          title: "Woolworths Select Australian Honey Twist & Squeeze 375g",
-          desc: "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended."
-        },
-        {
-          source: sample1,
-          title: "Woolworths Pepper Grinder Medley 45g",
-          desc: "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended."
-        },
-        {
-          source: sample2,
-          title: "Woolworths Sea Salt Grinder 110g",
-          desc: "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!  "
-        },
-        {
-          source: sample3,
-          title: " Woolworths Pasta Spaghetti 500g",
-          desc: "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!  "
-        },
-        {
-          source: sample3,
-          title: "Woolworths Pasta Spaghetti 500g",
-          desc: "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!  "
-        }
-      ];
+  {
+    "title": "Macro Nuts Almond Kernals Natural   250g",
+    "source": sample1,
+    "country": "",
+    "category": "",
+    "desc": "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended.",
+    "remarks": "No artificial colours, flavours or preservatives.",
+    "": ""
+  },
+  {
+    "title": "Woolworths Select Australian Honey Twist & Squeeze 375g",
+    "source": sample2,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "100% natural.",
+    "": ""
+  },
+  {
+    "title": "Woolworths  Pepper Grinder Medley 45g",
+    "source": sample3,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "Black Peppercorns (55%), White Peppercorns (30%), Green Peppercorns (15%).",
+    "": ""
+  },
+  {
+    "title": "Woolworths  Sea Salt Grinder 110g",
+    "source": sample2,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "Sea Salt (100%)",
+    "": ""
+  },
+  {
+    "title": "Woolworths Pasta Spaghetti 500g",
+    "source": sample1,
+    "country": "Australia",
+    "category": "",
+    "desc": "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!",
+    "remarks": "",
+    "": ""
+  },
+  {
+    "title": "Woolworths  Pepper Grinder Medley 45g",
+    "source": sample3,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "Black Peppercorns (55%), White Peppercorns (30%), Green Peppercorns (15%).",
+    "": ""
+  },
+  {
+    "title": "Woolworths  Sea Salt Grinder 110g",
+    "source": sample2,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "Sea Salt (100%)",
+    "": ""
+  },
+  {
+    "title": "Woolworths Pasta Spaghetti 500g",
+    "source": sample1,
+    "country": "Australia",
+    "category": "",
+    "desc": "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!",
+    "remarks": "",
+    "": ""
+  },
+  {
+    "title": "Woolworths  Pepper Grinder Medley 45g",
+    "source": sample3,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "Black Peppercorns (55%), White Peppercorns (30%), Green Peppercorns (15%).",
+    "": ""
+  },
+  {
+    "title": "Woolworths  Sea Salt Grinder 110g",
+    "source": sample2,
+    "country": "Australia",
+    "category": "",
+    "desc": "",
+    "remarks": "Sea Salt (100%)",
+    "": ""
+  },
+  {
+    "title": "Woolworths Pasta Spaghetti 500g",
+    "source": sample1,
+    "country": "Australia",
+    "category": "",
+    "desc": "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!",
+    "remarks": "",
+    "": ""
+  }
+];
     this.state = {
             filter: "",
+            list : this.list,
             options: {
                 loop: true,
                 nav: false,
@@ -71,12 +144,29 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
   handleClick() {
       this.setState({
-        filter: 'Ocean'
-      }, () => {
-      this.grid.updateLayout();});
+        list: this.shuffle(this.list)
+      },()=>{this.grid.updateLayout()})
     }
 
   render() {
@@ -130,14 +220,14 @@ class App extends Component {
               columnWidth={300}
               gutterWidth={15}
               gutterHeight={15}
+              monitorImagesLoaded={true}
             >
-                {this.list
-                  .filter(l => (l.title == this.state.filter || this.state.filter == ""))
+                {this.state.list
                   .map((l, i) => (
                   <div className="card">
-                    <img width="100%" height="100%" src={l.source}/>
+                    <img className="image" width="100%" height="100%" src={l.source}/>
                     <div className="details">
-                      <h8 className="title-font normal-font">{l.title}</h8>
+                      <h4>{l.title}</h4>
                       <div row="4">
                         {l.desc} 
                       </div>
