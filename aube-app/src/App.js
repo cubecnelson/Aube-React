@@ -6,13 +6,50 @@ import sample3 from './sample/P6100750.JPG';
 import './App.css';
 import { slide as Menu } from 'react-burger-menu';
 import OwlCarousel from 'react-owl-carousel';
+import StackGrid from "react-stack-grid";
+
 
 class App extends Component {
 
-constructor(props) {
-        super(props);
 
-        this.state = {
+
+
+  constructor(props) {
+        super(props);
+     this.list = [
+        {
+          source: sample2,
+          title: "Macro Nuts Almond Kernals Natural 250g",
+          desc: "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended."
+        },
+        {
+          source: sample3,
+          title: "Woolworths Select Australian Honey Twist & Squeeze 375g",
+          desc: "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended."
+        },
+        {
+          source: sample1,
+          title: "Woolworths Pepper Grinder Medley 45g",
+          desc: "When it comes to our food we believe it's what's inside that counts. That's why macro is made from 100% natural ingredients. Pure and simple, just the way natural intended."
+        },
+        {
+          source: sample2,
+          title: "Woolworths Sea Salt Grinder 110g",
+          desc: "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!  "
+        },
+        {
+          source: sample3,
+          title: " Woolworths Pasta Spaghetti 500g",
+          desc: "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!  "
+        },
+        {
+          source: sample3,
+          title: "Woolworths Pasta Spaghetti 500g",
+          desc: "Woolworths Pasta is made in partnership with 100% Australian, family owned company, using a traditional recipe by a dedicated and passionate team of experts. Quality you can enjoy everyday!  "
+        }
+      ];
+    this.state = {
+            filter: "",
             options: {
                 loop: true,
                 nav: false,
@@ -29,11 +66,21 @@ constructor(props) {
                 }
             },
         };
+
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+  handleClick() {
+      this.setState({
+        filter: 'Ocean'
+      }, () => {
+      this.grid.updateLayout();});
     }
 
-
-
   render() {
+
     return (
       <div className="App" >
         <Menu pageWrapId={ "page-wrap" }  >
@@ -68,16 +115,40 @@ constructor(props) {
                 className="owl-theme carousel"
                 {...this.state.options}
               >
-                  <div className="item tint t2"><h1 className="item-header title-font large-font">Nut Bar</h1><img className="tint-img" src={sample1}/></div>
+                  <div className="item tint t2" onClick={this.handleClick}><h1 className="item-header title-font large-font">Nut Bar</h1><img className="tint-img" src={sample1}/></div>
                   <div className="item tint t3"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample2}/></div>
                   <div className="item tint t4"><h1 className="item-header title-font large-font">Nut Bar</h1><img className="tint-img" src={sample3}/></div>
                   <div className="item tint t2"><h1 className="item-header title-font large-font">Honey</h1><img className="tint-img" src={sample1}/></div>
               </OwlCarousel>
           </div>
 
+          <div className="App-categories" id="categories">
+              <h1 className="title-font large-font" >Products</h1>
+              
+            <StackGrid
+              gridRef={grid => this.grid = grid}
+              columnWidth={300}
+              gutterWidth={15}
+              gutterHeight={15}
+            >
+                {this.list
+                  .filter(l => (l.title == this.state.filter || this.state.filter == ""))
+                  .map((l, i) => (
+                  <div className="card">
+                    <img width="100%" height="100%" src={l.source}/>
+                    <div className="details">
+                      <h8 className="title-font normal-font">{l.title}</h8>
+                      <div row="4">
+                        {l.desc} 
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </StackGrid>
+          
+          </div>
+
           <hr/>
-
-
           <div className="page" id="contact-us">
               <h1 className="title-font large-font">Contact Us</h1>
               
