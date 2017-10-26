@@ -9,6 +9,7 @@
     "react-grid-gallery": "^0.4.6",
     "react-owl-carousel": "^2.2.0",
     "react-scripts": "1.0.14",
+    "react-sizeme": "^2.3.6",
     "react-stack-grid": "^0.5.0",
     "react-stonecutter": "^0.3.7"
   },

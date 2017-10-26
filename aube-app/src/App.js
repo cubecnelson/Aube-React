@@ -6,16 +6,14 @@ import sample3 from './sample/P6100750.JPG';
 import './App.css';
 import { slide as Menu } from 'react-burger-menu';
 import OwlCarousel from 'react-owl-carousel';
-import StackGrid, { transitions } from "react-stack-grid";
 import { SpringGrid } from 'react-stonecutter';
+import StackGrid, {transitions}  from 'react-stack-grid';
+import sizeMe from 'react-sizeme';
 
 const { scaleDown } = transitions;
 
 
 class App extends Component {
-
-
-
 
   constructor(props) {
         super(props);
@@ -123,6 +121,7 @@ class App extends Component {
     this.state = {
             filter: "",
             list : this.list,
+            columnWidth: 0.1*window.innerWidth,
             options: {
                 loop: true,
                 nav: false,
@@ -141,6 +140,7 @@ class App extends Component {
         };
 
 
+    this.onSize = this.onSize.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -168,6 +168,12 @@ shuffle(array) {
         list: this.shuffle(this.list)
       },()=>{this.grid.updateLayout()})
     }
+
+  onSize(size) {
+      this.setState({
+          columnWidth: 0.25*window.innerWidth
+      },()=>{this.grid.updateLayout()});
+  }
 
   render() {
 
@@ -217,11 +223,10 @@ shuffle(array) {
               
             <StackGrid
               gridRef={grid => this.grid = grid}
-              columnWidth={300}
-              gutterWidth={15}
-              gutterHeight={15}
-              monitorImagesLoaded={true}
-            >
+              columnWidth={140+0.10*window.innerWidth}
+              gutterWidth={10}
+              gutterHeight={10}
+              monitorImagesLoaded={true}>
                 {this.state.list
                   .map((l, i) => (
                   <div className="card">
@@ -253,6 +258,14 @@ shuffle(array) {
   }
 }
 
+
+// Create the config
+const config = { monitorWidth: true };
+
+// Call SizeMe with the config to get back the HOC.
+const sizeMeHOC = sizeMe(config);
+
+// Wrap your component with the HOC.
 var logo_container = {
         flex: 1,
         flexDirection: 'column',
@@ -260,4 +273,5 @@ var logo_container = {
         background: 'red'
 }
 
-export default App;
+export default sizeMeHOC(App);
+
